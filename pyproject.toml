@@ -1,0 +1,26 @@
+[project]
+name = "boliglan-mcp"
+version = "0.1.0"
+description = "Norwegian Boliglån Negotiation MCP Server – fight stealth rate increases with real-time data"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+keywords = ["mcp", "mortgage", "norway", "boliglan", "finansportalen"]
+dependencies = [
+    "mcp[cli]>=1.0.0",
+    "httpx>=0.27.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.scripts]
+boliglan-mcp = "boliglan_mcp.server:main"
+
+[project.urls]
+Repository = "https://github.com/jakobkoding2/boligl-n-mcp"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["boliglan_mcp"]
